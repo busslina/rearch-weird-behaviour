@@ -3,15 +3,15 @@ import 'package:rearch_weird_behaviour/src/loading_side_effect.dart';
 import 'package:rearch_weird_behaviour/src/websocket.dart';
 
 LoadingValue loadingModeCapsule(CapsuleHandle use) {
-  final controller = use.loadingMode(
-    initialValue: true,
-    initialMessage: 'Initiating',
-  );
+  // final controller = use.loadingMode(
+  //   initialValue: true,
+  //   initialMessage: 'Initiating',
+  // );
 
   final websocketConnectionState = use(websocketConnectionStateCapsule);
 
   print(
-      '\nLOADING CAPSULE:\nWebsocket state: ${websocketConnectionState.asString}\nLoading: ${controller.loading}\nMessage: ${controller.loadingMessage}\n');
+      '\nLOADING CAPSULE:\nWebsocket state: ${websocketConnectionState.asString}\n');
 
   bool loading = false;
   String? message;
@@ -26,7 +26,9 @@ LoadingValue loadingModeCapsule(CapsuleHandle use) {
     }
   }
 
-  controller.set(loading, message);
+  // controller.set(loading, message);
 
-  return controller.asValue;
+  // return controller.asValue;
+
+  return LoadingValue(loading: loading, message: message);
 }
