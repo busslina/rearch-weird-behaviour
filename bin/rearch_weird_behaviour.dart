@@ -15,15 +15,15 @@ _startWebsocketSimulation() async {
   final setState = cc.read(setWebsocketConnectionStateCapsule);
 
   await _wait(5);
-  print('');
+  print('\n\n');
   setState(WebsocketConnectionState.connecting);
 
   await _wait(5);
-  print('');
+  print('\n\n');
   setState(WebsocketConnectionState.connected);
 
   await _wait(5);
-  print('');
+  print('\n\n');
   setState(WebsocketConnectionState.identified);
 
   await _wait(3600);
