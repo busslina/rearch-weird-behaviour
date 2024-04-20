@@ -1,5 +1,5 @@
 import 'package:rearch/rearch.dart';
-import 'package:rearch_weird_behaviour/src/loading.dart';
+import 'package:rearch_weird_behaviour/src/loading_capsule.dart';
 import 'package:rearch_weird_behaviour/src/websocket.dart';
 
 final cc = CapsuleContainer();

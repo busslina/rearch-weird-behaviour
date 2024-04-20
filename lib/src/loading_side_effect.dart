@@ -1,51 +1,7 @@
 import 'package:rearch/rearch.dart';
-import 'package:rearch_weird_behaviour/src/websocket.dart';
 
 extension _ConvenienceExtension on SideEffectRegistrar {
   SideEffectRegistrar get use => this;
-}
-
-LoadingValue loadingModeCapsule(CapsuleHandle use) {
-  final controller = use.loadingMode(
-    initialValue: true,
-    initialMessage: 'Initiating',
-  );
-
-  final websocketConnectionState = use(websocketConnectionStateCapsule);
-
-  print('loadingModeCapsule() -- Loading: ${controller.loading}');
-  print(
-      'loadingModeCapsule() -- Websocket connection state: ${websocketConnectionState.asString}');
-
-  bool loading = false;
-  String? message;
-
-  // Websocket connection state
-  {
-    final websocketLoadingMessage = websocketConnectionState.loadingMessage;
-
-    if (websocketLoadingMessage != null) {
-      loading = true;
-      message = websocketLoadingMessage;
-    }
-  }
-
-  print(
-      'loadingModeCapsule() -- Setting -- loading: $loading -- message: $message');
-
-  controller.set(loading, message);
-
-  return controller.asValue;
-}
-
-class LoadingValue {
-  final bool loading;
-  final String? message;
-
-  LoadingValue({
-    required this.loading,
-    required this.message,
-  });
 }
 
 extension SideEffectRegistrarExtension on SideEffectRegistrar {
@@ -107,4 +63,14 @@ extension LoadingModeControllerLiteExtension on LoadingModeController {
         loading: loading,
         message: loadingMessage,
       );
+}
+
+class LoadingValue {
+  final bool loading;
+  final String? message;
+
+  LoadingValue({
+    required this.loading,
+    required this.message,
+  });
 }
