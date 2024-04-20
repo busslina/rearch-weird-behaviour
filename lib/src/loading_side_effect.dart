@@ -32,7 +32,7 @@ extension SideEffectRegistrarExtension on SideEffectRegistrar {
         message.value = loading.value ? msg : null;
       }),
       set: (value, msg) => transactionRunner(() {
-        print('loadingMode() setting -- loading: $value, message: $msg');
+        print('LOADING SIDE EFFECT -- set() -- loading: $value, message: $msg');
         loading.value = value;
         message.value = value ? msg : null;
       }),
