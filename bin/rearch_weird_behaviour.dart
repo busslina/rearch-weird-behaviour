@@ -35,7 +35,7 @@ void _listenToLoadingStateChanges() {
   final _ = cc.listen((use) {
     final loading = use(loadingModeCapsule);
     print(
-        '\nLoading state: loading: ${loading.loading}, message: ${loading.message}\n');
+        '\nLISTENER:\nLoading: ${loading.loading}\nMessage: ${loading.message}\n');
   });
 }
 

@@ -14,8 +14,8 @@ extension SideEffectRegistrarExtension on SideEffectRegistrar {
 
     final transactionRunner = use.transactionRunner();
 
-    print(
-        'loadingMode() -- loading: ${loading.value}, message: ${message.value}');
+    // print(
+    //     'loadingMode() -- loading: ${loading.value}, message: ${message.value}');
 
     return LoadingModeController(
       loading: loading.value,
@@ -32,7 +32,7 @@ extension SideEffectRegistrarExtension on SideEffectRegistrar {
         message.value = loading.value ? msg : null;
       }),
       set: (value, msg) => transactionRunner(() {
-        print('loadingMode() setting -- value: $value, msg: $msg');
+        print('loadingMode() setting -- loading: $value, message: $msg');
         loading.value = value;
         message.value = value ? msg : null;
       }),

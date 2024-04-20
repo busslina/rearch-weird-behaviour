@@ -5,7 +5,7 @@ ValueWrapper<WebsocketConnectionState> _websocketConnectionStateManagerCapsule(
 ) {
   final state = use.data(WebsocketConnectionState.disconnected);
 
-  print('Websocket state: ${state.value.asString}');
+  print('\nWEBSOCKET: ${state.value.asString}\n');
 
   return state;
 }

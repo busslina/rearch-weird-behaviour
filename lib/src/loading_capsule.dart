@@ -10,9 +10,8 @@ LoadingValue loadingModeCapsule(CapsuleHandle use) {
 
   final websocketConnectionState = use(websocketConnectionStateCapsule);
 
-  print('loadingModeCapsule() -- Loading: ${controller.loading}');
   print(
-      'loadingModeCapsule() -- Websocket connection state: ${websocketConnectionState.asString}');
+      '\nCAPSULE:\nWebsocket state: ${websocketConnectionState.asString}\nLoading: ${controller.loading}\nMessage: ${controller.loadingMessage}\n');
 
   bool loading = false;
   String? message;
@@ -26,9 +25,6 @@ LoadingValue loadingModeCapsule(CapsuleHandle use) {
       message = websocketLoadingMessage;
     }
   }
-
-  print(
-      'loadingModeCapsule() -- Setting -- loading: $loading -- message: $message');
 
   controller.set(loading, message);
 
